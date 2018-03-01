@@ -1,0 +1,29 @@
+﻿@model ISD.ViewModels.Home.ServicesViewModel
+@{
+    ViewBag.Title = Model.pagesData == null ? "" : Model.pagesData.PageTitle;
+}
+
+<main class="pb-0">    
+    <!--Second container-->
+    <div class="container-fluid pb-0" style="background-color: #f4f4fa">
+        <div class="container py-4">
+
+            <!--Section: Services-->
+            <section id="services" class="section mt-3 mb-3 pb-3 pt-5">
+
+               
+                <div class="section-description lead  text-justify">
+                    @Html.Raw(@Model.pagesData == null ? "" : Model.pagesData.PageContent);
+
+                    </div>
+</section>
+            <!--/Section: Services-->
+
+        </div>
+
+    </div>
+    <!--Second container-->
+
+</main>
+
+

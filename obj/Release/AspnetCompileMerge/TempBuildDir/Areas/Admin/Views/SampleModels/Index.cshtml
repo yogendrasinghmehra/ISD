@@ -1,0 +1,27 @@
+﻿@model IEnumerable<ISD.Areas.Admin.Models.SampleModels>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<hr />
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+</p>
+
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-4">
+        <img class="img-responsive img-thumbnail" src="@item.LargeImageUrl" />
+        <strong>@item.Name</strong>
+        @Html.DisplayFor(modelItem => item.IsEnabled)
+        <hr />
+        @Html.ActionLink("Edit", "Edit", new { id = item.ModelId }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.ModelId })
+
+
+
+    </div>
+}

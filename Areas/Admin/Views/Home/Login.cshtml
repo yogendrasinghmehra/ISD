@@ -1,0 +1,57 @@
+﻿@model ISD.Areas.Admin.Models.AdminLogin 
+    @{ 
+        Layout = null;
+    }
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Admin Login</title>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+
+
+<div id="wrapper">
+
+<section id="content">
+<div class="container">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        @using (@Html.BeginForm("Login", "Home", FormMethod.Post, new { @class = "register-form" }))
+        {
+            <h2>
+                <small>Admin Login</small></h2>
+            <hr class="colorgraph">
+			
+            <div class="form-group">
+               
+             @Html.TextBoxFor(i => i.Name, new { @class = "form-control input-lg", @placeholder = "Id", @tabindex = "3" })
+                 
+            </div>
+            <div class="form-group">               
+                      @Html.PasswordFor(i => i.Password, new { @class = "form-control input-lg", @placeholder = "Password", @tabindex = "4" })
+            </div>								
+            <div class="row">
+                <div class="col-xs-12 col-md-6">
+                <input type="submit" value="Login" class="btn btn-light-green btn-lg"></div>
+                     @Html.ValidationSummary()
+            </div>
+        }
+    </div>
+</div>
+</div>
+	</section>
+</div>  
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+
+</body>
+</html>

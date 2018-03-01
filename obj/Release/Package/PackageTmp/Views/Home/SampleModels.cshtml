@@ -1,0 +1,43 @@
+﻿@model ISD.ViewModels.Home.ModelsViewModel 
+@{
+    ViewBag.Title = Model.pagesData == null ? "" : Model.pagesData.PageTitle;
+}
+
+<main class="pb-0">
+    <hr class="hr-width mb-5 mt-5 pb-3">
+    <div class="container">
+        <!--Second row-->
+        <div class="row pt-4 mb-4">
+            @foreach (var item in Model.modelsList)
+            {
+                <div class="col-lg-4">
+                    <!--Card-->
+                    <div class="card mb-r wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
+
+                        <!--Card image-->
+                        <img class="img-fluid" src="@item.LargeImageUrl" alt="Drawing Images">
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Title-->
+                            <h4 class="card-title text-center dark-grey-text">
+                                <strong>@item.Name</strong>
+                            </h4>                          
+                          
+                        </div>
+
+                    </div>
+                    <!--/.Card-->
+                </div>
+            }
+
+
+
+
+
+        </div>
+        <!--/.Second row-->
+    </div>
+
+</main>
+

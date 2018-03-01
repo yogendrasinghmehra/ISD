@@ -1,0 +1,29 @@
+﻿@model ISD.ViewModels.Home.AboutViewModel
+@{
+    ViewBag.Title = Model.pagesData == null ? "" : Model.pagesData.PageTitle;
+}
+
+
+<main class="pb-0">
+
+    <div class="container">
+
+       
+
+        <section id="products" class="section feature-box wow fadeIn" data-wow-delay="0.3s" style="animation-name: none; visibility: visible;">
+         
+            <!-- Section description -->
+            <div class="section-description lead grey-text text-justify">
+                @Html.Raw(@Model.pagesData == null ? "" : Model.pagesData.PageContent)
+                
+            </div>
+          
+        </section>
+
+
+
+
+       
+    </div>
+
+</main>

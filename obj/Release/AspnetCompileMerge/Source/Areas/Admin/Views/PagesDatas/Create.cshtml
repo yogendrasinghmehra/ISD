@@ -1,0 +1,69 @@
+﻿@model ISD.Areas.Admin.Models.PagesData
+
+@{
+    ViewBag.Title = "Create";    
+}
+
+<section id="content">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                @using (@Html.BeginForm("Create", "PagesDatas", FormMethod.Post))
+                {
+                    <h2>Add Page Data</h2>
+                    <hr class="colorgraph">
+                    @Html.ValidationSummary()
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(i => i.PageUrl, new { @class = "form-control", @placeholder = "Page URL"})
+
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(i => i.PageTitle, new { @class = "form-control", @placeholder = "Page Title" })
+
+                    </div>                    
+
+                    <div class="form-group">
+
+                        @Html.TextAreaFor(i => i.Keywords, new { @class = "form-control", @rows = "5", @placeholder = "Keywords" })
+                    </div>
+
+                    <div class="form-group">
+
+                        @Html.TextAreaFor(i => i.Descriptions, new { @class = "form-control", @rows = "5", @placeholder = "Description" })
+
+                    </div>
+
+                    <div class="form-group">
+                        <label><strong>Page Content</strong></label>
+                        @Html.TextAreaFor(i => i.PageContent, new { @class = "form-control", @rows = "5", @placeholder = "Page Content", id = "pageContent" })
+
+                    </div>
+
+
+                    <div class="form-group">
+                   <input type="submit" value="Add" class="btn btn-primary">
+                      
+
+                    </div>
+                }
+
+            </div>
+
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</section>
+@section Scripts
+{
+    <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+    <script type="text/javascript">
+    tinymce.init({ selector: '#pageContent' });
+    </script>
+
+
+
+}
