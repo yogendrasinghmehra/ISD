@@ -21,6 +21,8 @@ namespace ISD.Areas.Admin.Models
 
         //user section models
         public DbSet<CustomerQuery> customerQuery { get; set; }
+        public DbSet<Carrier> carrier { get; set; }   
+
 
 
     }

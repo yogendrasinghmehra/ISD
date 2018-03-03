@@ -25,7 +25,7 @@ namespace ISD.Models
                 mail.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
                 smtp.Host = "smtpout.secureserver.net";
-                smtp.Port = 465;
+                smtp.Port = 587;
                 smtp.UseDefaultCredentials = true;
                 smtp.Credentials = new System.Net.NetworkCredential
                 (senderId, senderPassword);// Enter seders User name and password
@@ -33,5 +33,7 @@ namespace ISD.Models
                 smtp.Send(mail);
             }
         }
+
+       
     }
 }

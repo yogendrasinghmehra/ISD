@@ -40,7 +40,7 @@
 
                     <div class="form-group">
                         <label><strong>Page Content</strong></label>
-                        @Html.TextAreaFor(i => i.PageContent, new { @class = "form-control", @rows = "5", @placeholder = "Page Content", id = "pageContent" })
+                       @Html.TextAreaFor(i => i.PageContent, new { @class = "form-control", @rows = "5", @placeholder = "Page Content", id = "pageContent" })    
 
                     </div>
 
@@ -59,13 +59,11 @@
     </div>
 </section>
 @section Scripts
-{
-    @*<script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>*@
-    <script src="~/Scripts/text-editor/editor.js"></script>
-    <script type="text/javascript">
-    //tinymce.init({ selector: '#pageContent' });
-        $("#pageContent").Editor();           
-    </script>
+                        {
+  <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+<script type="text/javascript">
+    tinymce.init({ selector: '#pageContent' });
+</script>
 
 
 

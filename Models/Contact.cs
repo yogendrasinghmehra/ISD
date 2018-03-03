@@ -24,8 +24,8 @@ namespace ISD.Models
         public string PhoneNo { get; set; }
         [Required]
         [StringLength(200)]
-        public string Message { get; set; }
-       
+        public string Message { get; set; }       
+        public DateTime createdDate { get; set; }
 
 
 

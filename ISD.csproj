@@ -164,39 +164,12 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201802170545064_changes.cs" />
-    <Compile Include="Migrations\201802170545064_changes.Designer.cs">
-      <DependentUpon>201802170545064_changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802170836495_changess.cs" />
-    <Compile Include="Migrations\201802170836495_changess.Designer.cs">
-      <DependentUpon>201802170836495_changess.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802170845276_chang.cs" />
-    <Compile Include="Migrations\201802170845276_chang.Designer.cs">
-      <DependentUpon>201802170845276_chang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802170928223_chan.cs" />
-    <Compile Include="Migrations\201802170928223_chan.Designer.cs">
-      <DependentUpon>201802170928223_chan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802181714313_customer model.cs" />
-    <Compile Include="Migrations\201802181714313_customer model.Designer.cs">
-      <DependentUpon>201802181714313_customer model.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802231647430_new-changess.cs" />
-    <Compile Include="Migrations\201802231647430_new-changess.Designer.cs">
-      <DependentUpon>201802231647430_new-changess.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802231650356_new-changes.cs" />
-    <Compile Include="Migrations\201802231650356_new-changes.Designer.cs">
-      <DependentUpon>201802231650356_new-changes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201802231652161_added-drawing type.cs" />
-    <Compile Include="Migrations\201802231652161_added-drawing type.Designer.cs">
-      <DependentUpon>201802231652161_added-drawing type.cs</DependentUpon>
+    <Compile Include="Migrations\201803031400568_chnage.cs" />
+    <Compile Include="Migrations\201803031400568_chnage.Designer.cs">
+      <DependentUpon>201803031400568_chnage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Carrier.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Services.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -210,6 +183,7 @@
     <Content Include="Content\MDB\css\compiled.min.css" />
     <Content Include="Content\MDB\css\mdb.css" />
     <Content Include="Content\MDB\css\mdb.min.css" />
+    <Content Include="Content\MDB\js\materialize.min.js" />
     <Content Include="Images\Logo\steel-logo.gif" />
     <Content Include="Images\Slider\slider-1.jpg" />
     <Content Include="Images\Slider\slider-2.jpg" />
@@ -346,6 +320,8 @@
     <Content Include="Areas\Admin\Views\DrawingsTypes\Details.cshtml" />
     <Content Include="Areas\Admin\Views\DrawingsTypes\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\DrawingsTypes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\UserQueries.cshtml" />
+    <Content Include="Areas\Admin\Views\Home\UserResumes.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -378,6 +354,7 @@
     <Content Include="Views\Home\Drawings.cshtml" />
     <Content Include="Views\Home\Models.cshtml" />
     <Content Include="Views\Home\SampleModels.cshtml" />
+    <Content Include="Views\Home\Career.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -398,29 +375,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201802170545064_changes.resx">
-      <DependentUpon>201802170545064_changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802170836495_changess.resx">
-      <DependentUpon>201802170836495_changess.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802170845276_chang.resx">
-      <DependentUpon>201802170845276_chang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802170928223_chan.resx">
-      <DependentUpon>201802170928223_chan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802181714313_customer model.resx">
-      <DependentUpon>201802181714313_customer model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802231647430_new-changess.resx">
-      <DependentUpon>201802231647430_new-changess.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802231650356_new-changes.resx">
-      <DependentUpon>201802231650356_new-changes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201802231652161_added-drawing type.resx">
-      <DependentUpon>201802231652161_added-drawing type.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803031400568_chnage.resx">
+      <DependentUpon>201803031400568_chnage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -35,6 +35,7 @@ namespace ISD.ViewModels.Home
     public class DrawingsViewModel
     {
         public PagesData pagesData { get; set; }
+        public List<DrawingsType> drawingsTypeList { get; set; }
         public List<Drawing> drawingsList { get; set; }
 
     }

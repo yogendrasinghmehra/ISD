@@ -70,10 +70,10 @@
 
 @section Scripts
 {
-   @*<script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>*@
-<script src="~/Scripts/text-editor/editor.js"></script>
+   <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+@*<script src="~/Scripts/text-editor/editor.js"></script>*@
 <script type="text/javascript">
-    //tinymce.init({ selector: '#pageContent' });
-    $("#pageContent").Editor();
+    tinymce.init({ selector: '#pageContent' });
+   // $("#pageContent").Editor();
 </script>
 }

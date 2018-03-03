@@ -40,15 +40,7 @@ C:\Users\Yogendera\source\repos\ISD\ISD\bin\Microsoft.AI.DependencyCollector.xml
 C:\Users\Yogendera\source\repos\ISD\ISD\bin\Microsoft.AI.ServerTelemetryChannel.xml
 C:\Users\Yogendera\source\repos\ISD\ISD\bin\Microsoft.AI.WindowsServer.xml
 C:\Users\Yogendera\source\repos\ISD\ISD\bin\Microsoft.AI.Web.xml
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.csprojResolveAssemblyReference.cache
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.changes.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.changess.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.chang.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.chan.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.customermodel.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.newchangess.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.newchanges.resources
-C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.addeddrawingtype.resources
+C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.Migrations.chnage.resources
 C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.csproj.GenerateResource.Cache
 C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.csproj.CoreCompileInputs.cache
 C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.dll

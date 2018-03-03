@@ -48,6 +48,7 @@ namespace ISD.Areas.Admin.Controllers
         [HttpPost]       
         public ActionResult Create([Bind(Include = "Id,PageUrl,PageTitle,Keywords,Descriptions,PageContent")] PagesData pagesData)
         {
+          
             if (ModelState.IsValid)
             {
                 db.pageDataList.Add(pagesData);

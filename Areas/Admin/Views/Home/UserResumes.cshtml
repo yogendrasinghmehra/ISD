@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ISD.Models.Carrier>
+@{
+    ViewBag.Title = "UserResumes";
+}
+
+<h2>UserResumes</h2>
+
+<table class=" table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Experience</th>
+        <th>Education</th>
+        <th>Resumes</th>
+    </tr>
+    <tbody>
+        @foreach (var dd in Model)
+        {
+            <tr>
+                <td>@dd.Name</td>
+                <td>@dd.Email</td>
+                <td>@dd.ContactNo</td>
+                <td>@dd.Experience</td>
+                <td>@dd.Education</td>
+                <td>@Html.ActionLink("Donload Resume", "DownloadResume", new { filePath = dd.ResumeUrl }, null)</td>
+                
+            </tr>
+        }
+    </tbody>
+</table>

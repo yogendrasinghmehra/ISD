@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -69,6 +70,43 @@ namespace ISD.Areas.Admin.Controllers
         {
             return View();
         }
+
+        public ActionResult UserQueries()
+        {
+
+            return View(db.customerQuery.ToList().OrderByDescending(i=>i.createdDate));
+        }
+
+        public ActionResult UserResumes()
+        {
+            return View(db.carrier.ToList().OrderByDescending(i => i.CreatedDate));
+        }
+
+        public ActionResult DownloadResume(string filePath)
+        {
+            string fullPath = Path.Combine(Server.MapPath("/"),filePath);           
+            if (filePath.Contains(".docx"))
+            {
+                return File(fullPath, "application/docx", filePath);
+               // return File(fullPath, System.Net.Mime.MediaTypeNames.Application.Octet);
+
+            }
+            else if (filePath.Contains(".pdf"))
+            {
+                return File(fullPath, "application/pdf", filePath);
+            }
+
+            if (filePath.Contains(".doc"))
+            {
+                return File(fullPath, "application/doc", filePath);
+            }
+
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
 
         [HttpPost]
         public ActionResult ChangePassword(ChangePassword adminDetails)

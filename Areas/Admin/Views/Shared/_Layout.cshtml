@@ -34,6 +34,14 @@
                     </li>
                     <li><a href="@Url.Action("Index", "SampleModels", new { Area = "Admin" })">Models</a></li>
 
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Queries<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("UserQueries", "Home", new { Area = "Admin" })">User Queries</a></li>
+                            <li><a href="@Url.Action("UserResumes", "Home", new { Area = "Admin" })">User Resumes</a></li>
+                        </ul>
+                    </li>
+
 
                     
                   

@@ -15,43 +15,39 @@ namespace ISD.Controllers
        private PageDataMethods getData = new PageDataMethods();
         private dbContext db = new dbContext();
         public ActionResult Index()
-        {
-            string url = HttpContext.Request.Url.AbsoluteUri;
-
+        {           
             IndexViewModel viewModel = new IndexViewModel();
-
-            viewModel.pagesData= getData.getPageInfo(url);
+            viewModel.pagesData= getData.getPageInfo(Request.Path);
           
             return View(viewModel);                      
         }
 
         [Route("Services")]
         public ActionResult Services()
-        {
-            string url = HttpContext.Request.Url.AbsoluteUri;
+        {            
             ServicesViewModel viewModel = new ServicesViewModel();
-            viewModel.pagesData = getData.getPageInfo(url);
+            viewModel.pagesData = getData.getPageInfo(Request.Path);
             return View(viewModel);
         }
 
         [Route("About")]
         public ActionResult About()
         {
-            string url = HttpContext.Request.Url.AbsoluteUri;
+            
 
             AboutViewModel viewModel = new AboutViewModel();
 
-            viewModel.pagesData = getData.getPageInfo(url);
+            viewModel.pagesData = getData.getPageInfo(Request.Path);
             return View(viewModel);           
         }
         [Route("Contact")]
         public ActionResult Contact()
         {
-            string url = HttpContext.Request.Url.AbsoluteUri;
+            
 
             ContactViewModel viewModel = new ContactViewModel();
 
-            viewModel.pagesData = getData.getPageInfo(url);
+            viewModel.pagesData = getData.getPageInfo(Request.Path);
 
             if(TempData["statusMsg"]!=null)
                 {
@@ -65,8 +61,11 @@ namespace ISD.Controllers
         public ActionResult Drawings()
         {
             DrawingsViewModel drawingsViewModel = new DrawingsViewModel();
-            drawingsViewModel.pagesData = getData.getPageInfo(HttpContext.Request.Url.AbsoluteUri);
+
+            drawingsViewModel.pagesData = getData.getPageInfo(Request.Path);
             drawingsViewModel.drawingsList = db.drawings.ToList();
+            drawingsViewModel.drawingsTypeList = db.drawingTypes.ToList();
+
             return View(drawingsViewModel);
         }
 
@@ -74,9 +73,23 @@ namespace ISD.Controllers
         public ActionResult SampleModels()
         {
             ModelsViewModel modelsViewModel = new ModelsViewModel();
-            modelsViewModel.pagesData = getData.getPageInfo(HttpContext.Request.Url.AbsoluteUri);
+            modelsViewModel.pagesData = getData.getPageInfo(Request.Path);
             modelsViewModel.modelsList = db.models.ToList();
             return View(modelsViewModel);
+        }
+
+        [Route("Career")]
+        public ActionResult Career()
+        {          
+            ContactViewModel viewModel = new ContactViewModel();
+            viewModel.pagesData = getData.getPageInfo(Request.Path);
+
+            if (TempData["statusMsg"] != null)
+            {
+                ViewBag.status = TempData["statusMsg"];
+            }
+
+            return View();
         }
 
         [HttpPost]
@@ -84,15 +97,50 @@ namespace ISD.Controllers
         {
             if(ModelState.IsValid)
             {
+                query.customerQuery.createdDate = DateTime.Now;
                 db.customerQuery.Add(query.customerQuery);
                 db.SaveChanges();
                 ISDServices services = new ISDServices();
-               // services.SendMailToAdmin("User Query", query.customerQuery.Email);
+               //services.SendMailToAdmin("User Query", query.customerQuery.Email);
                 
              
             }
             TempData["statusMsg"] = "Query Added Successfully";
             return RedirectToAction("Contact");
+        }
+
+        [HttpPost]
+        public ActionResult AddCarrier(Carrier query,HttpPostedFileBase resume)
+        {
+            if (ModelState.IsValid && resume!=null)
+            {
+                query.CreatedDate = DateTime.Now;
+                query.ResumeUrl = query.SaveResume(resume);
+                db.carrier.Add(query);
+                db.SaveChanges();
+                TempData["statusMsg"] = "Query Added Successfully";
+            }
+            else
+            {
+                TempData["statusMsg"] = "Something went wrong.";
+            }          
+            return RedirectToAction("Career");
+        }
+
+
+        [HttpGet]
+        public JsonResult GetDrawingsByType(int typeId)
+        {
+            //var dd=db.drawings.Where(i=>i.)
+            if(typeId==0)
+            {
+                return Json(db.drawings.ToList(), JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                return Json(db.drawings.Where(i => i.DrawingTypeId == typeId), JsonRequestBehavior.AllowGet);
+            }
+            
         }
 
     }

@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
-
+<link href="~/Scripts/text-editor/editor.css" rel="stylesheet" />
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
@@ -50,7 +50,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.PageContent, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.PageContent, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextAreaFor(model => model.PageContent, new { @class = "form-control", @rows = "5", @placeholder = "Page Content", id = "pageContent" })
                 @Html.ValidationMessageFor(model => model.PageContent, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -70,11 +70,10 @@
 
 @section Scripts
 {
-    <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-    <script type="text/javascript">
-        tinymce.init({ selector: '#PageContent' });
-    </script>
-
-
-
+   <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+@*<script src="~/Scripts/text-editor/editor.js"></script>*@
+<script type="text/javascript">
+    tinymce.init({ selector: '#pageContent' });
+   // $("#pageContent").Editor();
+</script>
 }

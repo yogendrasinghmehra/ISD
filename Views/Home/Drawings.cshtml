@@ -3,43 +3,106 @@
     ViewBag.Title = Model.pagesData == null ? "" : Model.pagesData.PageTitle;
 }
 
-<main class="pb-0">
-    <hr class="hr-width mb-5 mt-5 pb-3">
-    <div class="container">               
-        <!--Second row-->
-        <div class="row pt-4 mb-4">
-            @foreach (var item in Model.drawingsList)
-            {
-                <div class="col-lg-4">
-                    <!--Card-->
-                    <div class="card mb-r wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
+<style>
+    .dropdown-content.select-dropdown {
+        height: auto;
+    }
+</style>
 
-                        <!--Card image-->
-                        <img class="img-fluid" src="@item.LargeImageUrl" alt="Drawing Images">
-
-                        <!--Card content-->
-                        <div class="card-body">
-                            <!--Title-->
-                            <h4 class="card-title text-center dark-grey-text">
-                                <strong>@item.Name</strong>
-                            </h4>
-                          
-                        </div>
-
-                    </div>
-                    <!--/.Card-->
+<main class="pb-0" >
+    
+    <div class="container">  
+        <hr class="hr-width mb-5 mt-5">
+        <div class="row pt-5">
+            <div class="col-md-9"></div>
+                <div class="col-md-3">
+                    <select class="mdb-select colorful-select dropdown-primary" id="drawingType">
+                        <option value="0">All</option>
+                        @foreach(var i in Model.drawingsTypeList)
+                        {
+                            <option value="@i.DrawingTypeId">@i.Name</option>
+                        }
+                    </select>                                       
                 </div>
-            }
+            </div>
+        
+      
+          <!--Second row-->
+          <div class="row pt-4 mb-4" id="divDrawingList">
+              @foreach (var item in Model.drawingsList)
+            {
+                  <div class="col-lg-4">
+                      <!--Card-->
+                      <a target="_blank" href="@item.LargeImageUrl">
+                          <div class="card mb-r wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;">
 
-           
-            
-            
-          
-        </div>
-        <!--/.Second row-->
+                              <!--Card image-->
+                              <img class="img-fluid" src="@item.LargeImageUrl" alt="Drawing Images">
+
+                              <!--Card content-->
+
+                              <div class="card-body">
+                                  <!--Title-->
+                                  <h4 class="card-title text-center dark-grey-text">
+                                      <strong>@item.Name</strong>
+                                  </h4>
+
+                              </div>
+
+                          </div>
+                      </a>
+                      <!--/.Card-->
+                  </div>
+              }
+
+
+
+
+
+          </div>
+          <!--/.Second row-->
+     
     </div>   
 
 </main>
+@section Scripts
+{
+<script src="~/Content/MDB/js/materialize.min.js"></script>
+    <script>
+        $('.mdb-select').material_select();
+
+        $('#drawingType').on('change', function () {
+
+            if ($(this).val())
+            {
+                $.ajax({
+                    url: "Home/GetDrawingsByType",
+                    type: "GET",
+                    data: { typeId: $(this).val() },
+                    dataType: "json",
+                    success: function (data) {
+                        debugger;
+                        $('#divDrawingList').empty();
+                        if (data.length > 0) {
+                           
+
+                            $.each(data, function (key, value) {
+                                $('#divDrawingList').append("<div class='col-lg-4'><a target='_blank' href='" + value.LargeImageUrl + "'>" +
+                                    "<div class='card mb-r wow fadeIn' data-wow-delay='0.4s' style='visibility: visible; animation-name: fadeIn; animation-delay: 0.4s;'>" +
+                                    "<img class='img-fluid' src='" + value.LargeImageUrl + "' alt='Drawing Images'>" +
+                                    "<div class='card-body'><h4 class='card-title text-center dark-grey-text'><strong>" + value.Name + "</strong></h4>" +
+                              "</div> </div></a></div>");                                
+                            });
+
+                        }
+                    }
+                });
+
+            }
+
+        })
+    </script>
+    }
 
 
 
