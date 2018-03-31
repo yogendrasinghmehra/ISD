@@ -59,9 +59,9 @@ namespace ISD.Models
 
 
                 //var savingPath = Path.Combine(HttpContext.Current.Server.MapPath("~/Images/DrawingImages/LargeImages/"), id + imageExtention);
-                var savingPath = Path.Combine(HttpContext.Current.Server.MapPath("~/Resumes"), Guid.NewGuid().ToString()+ Path.GetExtension(file.FileName));
+                var savingPath = Path.Combine(HttpContext.Current.Server.MapPath("~/Resumes"), id+ Path.GetExtension(file.FileName));
                 file.SaveAs(savingPath);
-                finaleImageUrl = string.Concat("Resumes/", Guid.NewGuid().ToString() + Path.GetExtension(file.FileName));
+                finaleImageUrl = string.Concat("Resumes/",id + Path.GetExtension(file.FileName));
             }
             return finaleImageUrl;
         }

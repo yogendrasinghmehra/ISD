@@ -73,7 +73,7 @@
                                     <div class="col-md-6">
                                         <div class="md-form">
 
-                                            @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", @placeholder = "Select Date of Birth" })
+                                            @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control", @placeholder = "Select Date of Birth" ,@type="date"})
                                             @Html.ValidationMessageFor(model => model.DateOfBirth)
 
                                         </div>
@@ -182,8 +182,7 @@
 {
 
     <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
-    
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>    
     <script src="~/Content/MDB/js/materialize.min.js"></script>
     <script>
         $(function () {            
@@ -191,7 +190,11 @@
                 today: '',
                 clear: 'Clear',
                 close: 'Close',
-                closeOnSelect: true
+                closeOnSelect: true,
+                selectMonths: true,
+                selectYears: true,
+                selectYears: 50,               
+                max: true
             });
             $('.mdb-select').material_select();
             

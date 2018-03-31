@@ -3,8 +3,9 @@
 @{
     ViewBag.Title = "Create";    
 }
-<link href="~/Scripts/text-editor/editor.css" rel="stylesheet" />
-
+    
+<link href="~/Content/html-editor/summernote.css" rel="stylesheet" />
+ 
 <section id="content">
     <div class="container">
 
@@ -60,9 +61,13 @@
 </section>
 @section Scripts
                         {
-  <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
+  @*<script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>*@
+<script src="~/Content/html-editor/summernote.js"></script>
 <script type="text/javascript">
-    tinymce.init({ selector: '#pageContent' });
+    $(document).ready(function () {
+        $('#pageContent').summernote();
+    });
+   // tinymce.init({ selector: '#pageContent' });
 </script>
 
 

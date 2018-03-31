@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using ISD.ViewModels.Home;
 using ISD.Models;
+using System.Net.Mail;
+using System.Net;
 
 namespace ISD.Controllers
 {
@@ -100,10 +102,9 @@ namespace ISD.Controllers
                 query.customerQuery.createdDate = DateTime.Now;
                 db.customerQuery.Add(query.customerQuery);
                 db.SaveChanges();
-                ISDServices services = new ISDServices();
-               //services.SendMailToAdmin("User Query", query.customerQuery.Email);
-                
-             
+                ISDServices services = new ISDServices();               
+               services.SendMailToAdmin("User Query", query.customerQuery);
+
             }
             TempData["statusMsg"] = "Query Added Successfully";
             return RedirectToAction("Contact");

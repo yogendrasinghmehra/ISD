@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "Edit";
 }
-<link href="~/Scripts/text-editor/editor.css" rel="stylesheet" />
+<link href="~/Content/html-editor/summernote.css" rel="stylesheet" />
 <h2>Edit</h2>
 
 @using (Html.BeginForm())
@@ -70,10 +70,11 @@
 
 @section Scripts
 {
-   <script src="https://tinymce.cachefly.net/4.0/tinymce.min.js"></script>
-@*<script src="~/Scripts/text-editor/editor.js"></script>*@
+<script src="~/Content/html-editor/summernote.js"></script>
 <script type="text/javascript">
-    tinymce.init({ selector: '#pageContent' });
-   // $("#pageContent").Editor();
+    $(document).ready(function () {
+        $('#pageContent').summernote();
+    });   
 </script>
-}
+    }
+

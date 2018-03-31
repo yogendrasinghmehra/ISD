@@ -45,3 +45,4 @@ C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.csproj.GenerateResource.Ca
 C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.csproj.CoreCompileInputs.cache
 C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.dll
 C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.pdb
+C:\Users\Yogendera\source\repos\ISD\ISD\obj\Debug\ISD.csprojResolveAssemblyReference.cache

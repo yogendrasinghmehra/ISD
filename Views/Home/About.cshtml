@@ -6,14 +6,12 @@
 
 <main class="pb-0">
 
-    <div class="container">
+    <div class="container py-4">
 
-       
-
-        <section id="products" class="section feature-box wow fadeIn" data-wow-delay="0.3s" style="animation-name: none; visibility: visible;">
+        <section id="products" class="section feature-box wow fadeIn  mt-4 mb-3 pb-3 pt-5 " data-wow-delay="0.3s" style="animation-name: none; visibility: visible;">
          
             <!-- Section description -->
-            <div class="section-description lead grey-text text-justify">
+            <div class="section-description lead text-justify">
                 @Html.Raw(@Model.pagesData == null ? "" : Model.pagesData.PageContent)
                 
             </div>

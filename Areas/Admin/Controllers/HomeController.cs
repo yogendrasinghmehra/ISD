@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -84,11 +85,18 @@ namespace ISD.Areas.Admin.Controllers
 
         public ActionResult DownloadResume(string filePath)
         {
-            string fullPath = Path.Combine(Server.MapPath("/"),filePath);           
+            //string fullPath = Path.Combine(Server.MapPath("~"), filePath);
+            //byte[] fileBytes = System.IO.File.ReadAllBytes(fullPath);
+            //string fileName = "resume";
+            //return File(fileBytes, System.Net.Mime.MediaTypeNames.Application.Octet, fileName);
+
+
+            string fullPath = Path.Combine(Server.MapPath("~"), filePath);
+
             if (filePath.Contains(".docx"))
             {
                 return File(fullPath, "application/docx", filePath);
-               // return File(fullPath, System.Net.Mime.MediaTypeNames.Application.Octet);
+                // return File(fullPath, System.Net.Mime.MediaTypeNames.Application.Octet);
 
             }
             else if (filePath.Contains(".pdf"))
